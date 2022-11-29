@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_story"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:backgroundTint="@color/grey"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingVertical="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="0dp"
+    app:cardUseCompatPadding="true"
+    app:strokeWidth="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_story"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="@string/story_img"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/cat" />
+
+        <TextView
+            android:id="@+id/tv_user"
+            style="@style/title"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="16dp"
+            android:paddingVertical="8dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_story"
+            tools:text="@string/name_dum" />
+
+        <View
+            android:id="@+id/v_devider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_user" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            style="@style/description"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:textAllCaps="false"
+            android:textColor="@color/broken_white"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/tv_user"
+            app:layout_constraintBottom_toBottomOf="@id/tv_user"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="@string/date" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            style="@style/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/v_devider"
+            tools:ignore="NotSibling"
+            tools:text="@string/desc_brand" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

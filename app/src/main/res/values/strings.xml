@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Story App</string>
+    <string name="app_brand">Sokap</string>
+    <string name="desc_brand">Yuk share kegiatan seru,\ndokumentasikan momenmu bersama StoryApp.</string>
+    <string name="placeholder_email">Email Kamu</string>
+    <string name="placeholder_password">Kata Sandi Kamu</string>
+    <string name="placeholder_name">Nama Kamu</string>
+    <string name="forgot_password">Lupa Kata Sandi?</string>
+    <string name="login">Masuk</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="register">Daftar</string>
+    <string name="camera">Kamera</string>
+    <string name="galery">Galeri</string>
+    <string name="upload">Kirim</string>
+    <string name="placeholder_story">Ceritain tentang momen ini</string>
+    <string name="logo">logo</string>
+    <string name="validation_email_invalid">Harap masukan dalam format email</string>
+    <string name="validation_email_null">Email tidak boleh kosong</string>
+    <string name="validation_password_length">Isi password minimal 6 karakter</string>
+    <string name="validation_password_null">Password tidak boleh kosong</string>
+    <string name="message_login_200">Success Login!</string>
+    <string name="message_login_error">Gagal Login, Silahkan coba lagi</string>
+    <string name="alert_login">Email atau Password salah, Silahkan coba lagi</string>
+    <string name="message_register_200">Success Register!</string>
+    <string name="name_dum">Fulan</string>
+    <string name="story_img">Story Image</string>
+    <string name="date">21 Nov 2022</string>
+    <string name="message_logout_200">Success Logout!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="message_register_400">Registrasi gagal silahkan coba lagi</string>
+    <string name="others">Others</string>
+    <string name="logout">Keluar</string>
+    <string name="dashboard">Beranda</string>
+    <string name="logout_confirmation_title">Apakah Anda yakin untuk keluar?</string>
+    <string name="confirmation_positive">Ya</string>
+    <string name="confirmation_negative">Batal</string>
+    <string name="story_null">Story Empty State</string>
+    <string name="content_desc_fab_add_story">add new story</string>
+    <string name="empty_state_stories">Story Kosong</string>
+    <string name="story_add">Tambah Story Baru</string>
+    <string name="desc_selected_media">Pilih media untuk unggah</string>
+    <string name="desc_insert_desc">Deskripsi Cerita</string>
+    <string name="alert_upload">Foto / Deskripsi Tidak boleh kosong</string>
+    <string name="message_upload_201">Berhasil di Upload</string>
+    <string name="message_upload_400">Gagal upload</string>
+    <string name="preview_story">Preview Photo Story</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="camera_denied">Kamera tidak diberikan izin</string>
+    <string name="story_detail">Detail Story</string>
+    <string name="desc">Deskripsi</string>
+
+
+</resources>

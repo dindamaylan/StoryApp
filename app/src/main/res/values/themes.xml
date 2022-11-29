@@ -1,0 +1,84 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.StoryApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/purple</item>
+        <item name="colorSecondaryVariant">@color/purple_200</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:ignore="ObsoleteSdkInt" tools:targetApi="l">
+            ?attr/colorPrimaryVariant
+        </item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="toolbar">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/lexend_sb</item>
+        <item name="lineHeight">38sp</item>
+    </style>
+
+    <style name="title">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/lexend_sb</item>
+        <item name="lineHeight">38sp</item>
+    </style>
+
+    <style name="description">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="fontFamily">@font/lexend</item>
+        <item name="lineHeight">24sp</item>
+    </style>
+
+    <style name="input_text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/lexend</item>
+    </style>
+
+    <style name="placeholder">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/grey</item>
+        <item name="fontFamily">@font/lexend</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.TextInputEditText.OutlinedBox</item>
+        <item name="boxCollapsedPaddingTop">0dp</item>
+        <item name="paddingStart">20dp</item>
+        <item name="colorBackgroundFloating">@color/white</item>
+    </style>
+
+    <style name="button_text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">@font/lexend_medium</item>
+        <item name="borderRound">12dp</item>
+    </style>
+
+    <style name="cta">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="fontFamily">@font/lexend</item>
+    </style>
+
+    <style name="alert">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="fontFamily">@font/lexend</item>
+    </style>
+
+    <style name="h1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">@font/lexend_sb</item>
+    </style>
+
+
+
+</resources>
