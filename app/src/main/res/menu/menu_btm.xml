@@ -6,6 +6,11 @@
         android:title="@string/dashboard" />
 
     <item
+        android:id="@+id/locationFragment"
+        android:icon="@drawable/ic_location"
+        android:title="@string/location" />
+
+    <item
         android:id="@+id/othersFragment"
         android:icon="@drawable/ic_others"
         android:title="@string/others" />

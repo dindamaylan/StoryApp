@@ -50,6 +50,16 @@
     <string name="camera_denied">Kamera tidak diberikan izin</string>
     <string name="story_detail">Detail Story</string>
     <string name="desc">Deskripsi</string>
+    <string name="alert_timeout">Request Timeout</string>
+    <string name="alert_disconnect">Failed to connect</string>
+    <string name="alert_location">Yah gagal, maaf ya coba lagi</string>
+    <string name="dum_location">-</string>
+    <string name="retry">Coba Lagi</string>
+    <string name="location">Location</string>
+    <string name="location_denied">Lokasi tidak diberikan izin</string>
+    <string name="content_dect_btn_capture_camera">ic_btn_captute</string>
+    <string name="content_desc_iv_btn_switch_camera">ic_btn_swith_camera</string>
+    <string name="exception_open_camera">Camera bermasalah</string>
 
 
 </resources>

@@ -22,5 +22,5 @@ class LoginViewModel @Inject constructor(private val authUser: AuthUser): ViewMo
         }
     }
 
-    val getAuthToken: LiveData<String> = authUser.getTokenAuth().asLiveData()
+    val getAuthToken: LiveData<String> by lazy {authUser.getTokenAuth().asLiveData()}
 }

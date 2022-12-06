@@ -1,12 +1,12 @@
 package com.dindamaylan.storyapp
 
-import android.Manifest
+import android.Manifest.permission
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
@@ -39,9 +39,7 @@ class MainActivity : AppCompatActivity() {
         loginViewModel.getAuthToken.observe(this) { token ->
             if (token.isBlank()) {
                 navToLogin(navControl)
-            }
-
-            else{
+            } else {
                 navToDashboard(navControl)
             }
         }
@@ -67,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.dashboardFragment,
+                R.id.locationFragment,
                 R.id.othersFragment -> {
                     binding.fcwMain.margin(bottom = 56f)
                     btmNav.isVisible = true
@@ -79,22 +78,39 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun askPermissionCamerax(code: Int = 10): Boolean {
+    fun askPermissionCamerax(code: Int = 1): Boolean {
         return if (ContextCompat.checkSelfPermission(
                 this,
-                Manifest.permission.CAMERA
+                permission.CAMERA
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(
+            requestPermissions(
                 this,
-                arrayOf(Manifest.permission.CAMERA),
+                arrayOf(permission.CAMERA),
                 code
             )
             ContextCompat.checkSelfPermission(
                 this,
-                Manifest.permission.CAMERA
+                permission.CAMERA
             ) == PackageManager.PERMISSION_GRANTED
         } else true
+    }
+
+    fun askPermissionLocation(code: Int = 2): Boolean {
+        val fineLocPerm = permission.ACCESS_FINE_LOCATION
+        val coarseLocPerm = permission.ACCESS_COARSE_LOCATION
+
+        return if (permissionCheck(fineLocPerm) && permissionCheck(coarseLocPerm)) {
+            requestPermissions(this, arrayOf(fineLocPerm, coarseLocPerm), code)
+            permissionCheck(fineLocPerm) && permissionCheck(coarseLocPerm)
+        } else true
+    }
+
+    fun permissionCheck(permission: String): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
+            permission
+        ) != PackageManager.PERMISSION_GRANTED
     }
 
     override fun onRequestPermissionsResult(
@@ -104,12 +120,22 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            10 -> {
+            1 -> {
                 if (grantResults.isNotEmpty() && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     if (askPermissionCamerax())
                         Toast.makeText(
                             this,
                             getString(R.string.camera_denied),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                }
+            }
+            2 -> {
+                if (grantResults.isNotEmpty() && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    if (askPermissionLocation())
+                        Toast.makeText(
+                            this,
+                            getString(R.string.location_denied),
                             Toast.LENGTH_SHORT
                         ).show()
                 }

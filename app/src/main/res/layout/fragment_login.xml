@@ -90,36 +90,24 @@
     <TextView
         android:id="@+id/tv_alert"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
         android:text="@string/alert_login"
         android:theme="@style/alert"
         android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@+id/til_password"
-        tools:layout_editor_absoluteX="20dp" />
-
-    <TextView
-        android:id="@+id/cta_forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/forgot_password"
-        android:theme="@style/cta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_alert"
-        tools:ignore="TextContrastCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/til_password" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/lexend"
         android:text="@string/login"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cta_forgot_password"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alert"
         tools:ignore="TextContrastCheck" />
 
     <TextView

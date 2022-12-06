@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.dindamaylan.storyapp.MainActivity
+import com.dindamaylan.storyapp.R
 import com.dindamaylan.storyapp.databinding.FragmentCameraXBinding
 import com.dindamaylan.storyapp.utils.Helper.createFile
 import com.dindamaylan.storyapp.utils.Helper.uriToFile
@@ -100,7 +101,7 @@ class CameraXFragment : Fragment() {
             } catch (exc: Exception) {
                 Toast.makeText(
                     requireContext(),
-                    "Camera bermasalah",
+                    getString(R.string.exception_open_camera),
                     Toast.LENGTH_SHORT
                 ).show()
             }

@@ -1,6 +1,5 @@
 package com.dindamaylan.storyapp.data.repository
 
-import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -24,11 +23,9 @@ class AuthUser @Inject constructor(
     suspend fun login(email:String, password:String) = flow {
         try {
             val apiResponse = apiService.postLogin(email, password)
-            Log.d("TAG", "doLogin: $apiResponse")
             emit(Result.success(apiResponse))
         }catch (e:Exception){
             e.printStackTrace()
-            Log.d("TAG", "doLogin: ${e.message}")
             emit(Result.failure(e))
         }
     }.flowOn(Dispatchers.IO)

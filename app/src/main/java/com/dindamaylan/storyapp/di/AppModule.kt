@@ -61,7 +61,7 @@ object AppModule {
     @Singleton
     fun provideApiService(client: OkHttpClient): ApiService{
         return Retrofit.Builder()
-            .baseUrl("https://story-api.dicoding.dev/v1/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

@@ -72,12 +72,12 @@ object Helper {
 
     private const val DATE_FORMAT = "dd-MMM-yyyy"
 
-    val timeStamp: String = SimpleDateFormat(
+    private val timeStamp: String = SimpleDateFormat(
         DATE_FORMAT,
         Locale.US
     ).format(System.currentTimeMillis())
 
-    fun createTempFile(prefix: Context): File {
+    private fun createTempFile(prefix: Context): File {
         return File.createTempFile(
             SimpleDateFormat("dd-MM-yyyy", Locale.US).format(System.currentTimeMillis()),
             ".jpg",

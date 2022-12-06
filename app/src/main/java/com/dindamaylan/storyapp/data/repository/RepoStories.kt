@@ -43,6 +43,29 @@ class RepoStories @Inject constructor(
         ).flow.flowOn(Dispatchers.IO)
     }
 
+    fun getStoriesbyLocation(): Flow<Result<List<Stories>>> = flow{
+        try {
+            val token = BEARER.plus(authUser.getTokenAuth().first())
+
+            val response = apiService.getStories(token, location = 1)
+            val stories = response.listStory.map {
+                Stories(
+                    it.id,
+                    it.name ?: "",
+                    it.description ?: "",
+                    it.photoUrl ?: "",
+                    it.createdAt ?: "",
+                    it.lon,
+                    it.lat
+                )
+            }
+            emit(Result.success(stories))
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emit(Result.failure(e))
+        }
+    }
+
     suspend fun postStories(
         file: File,
         description: String,

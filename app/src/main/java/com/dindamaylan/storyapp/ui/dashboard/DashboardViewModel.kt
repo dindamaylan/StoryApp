@@ -14,6 +14,7 @@ import javax.inject.Inject
 
 @ExperimentalPagingApi
 @HiltViewModel
-class DashboardViewModel @Inject constructor(private val repoStories: RepoStories): ViewModel() {
-    fun getStories(): LiveData<PagingData<Stories>> = repoStories.getStories().cachedIn(viewModelScope).asLiveData()
+class DashboardViewModel @Inject constructor(private val repoStories: RepoStories) : ViewModel() {
+    fun getStories(): LiveData<PagingData<Stories>> =
+        repoStories.getStories().cachedIn(viewModelScope).asLiveData()
 }

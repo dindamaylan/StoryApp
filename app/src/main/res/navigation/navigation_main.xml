@@ -28,6 +28,9 @@
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_locationFragment2"
+            app:destination="@id/locationFragment" />
     </fragment>
     <fragment
         android:id="@+id/othersFragment"
@@ -129,4 +132,9 @@
             app:argType="integer"
             android:defaultValue="-1" />
     </fragment>
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.dindamaylan.storyapp.ui.map.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" />
 </navigation>

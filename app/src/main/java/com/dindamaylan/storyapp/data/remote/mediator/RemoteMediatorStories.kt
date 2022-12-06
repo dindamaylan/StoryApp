@@ -37,7 +37,6 @@ class RemoteMediatorStories(
         val pager = when (loadType) {
             REFRESH -> {
                 ID_PAGER
-//                getRemotePagerCurrently(state)?.nextPager?.minus(1) ?: ID_PAGER
             }
             PREPEND -> {
                 val index = getRemotePagerFirstly(state)
@@ -62,7 +61,7 @@ class RemoteMediatorStories(
                 RemotePager(id = it.id, previousPager = previousPager, nextPager = nextPager)
             }
 
-            if (loadType == LoadType.REFRESH) {
+            if (loadType == REFRESH) {
                 dbStories.remoteKeysMediaStoriesDAO().deleteRemotePager()
                 dbStories.storiesDAO().deleteStories()
             }
@@ -71,7 +70,7 @@ class RemoteMediatorStories(
 
             val stories = response.listStory.map {
                 Stories(
-                    it.id ?: "",
+                    it.id,
                     it.name ?: "",
                     it.description ?: "",
                     it.photoUrl ?: "",

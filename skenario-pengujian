@@ -1,4 +1,70 @@
 Skenario Pengujian Story App:
 
 A. Login View Model
-    [-]     
+    1. Ketika gagal:
+        - Pastikan memanggil method AuthUser Login.
+        - Pastikan hasil actual not null.
+        - Pastikan mengembalikan error
+        - Pastikan hasil expect dan actual sama.
+    2. Ketika berhasil Login:
+        - Pastikan memanggil method AuthUser Login.
+        - Pastikan hasil actual not null.
+        - Pastikan mengembalikan response sukses.
+        - Pastikan hasil expect dan actual sama.
+    3. Ketika berhasil Login:
+        - Pastikan memanggil method AuthUser getTokenAuth.
+        - Pastikan hasil token actual tidak kosong
+    4. Ketika memanggil method autentifikasi token:
+        - Pastikan memanggil method AuthUser saveAuthToken untuk menyimpan token
+    5. Ketika logout:
+        - Pastikan memanggil method AuthUser getTokenAuth.
+        - Pastikan hasil actual dari token = kosong
+
+B. Register View Model
+    1. Ketika gagal Register:
+        - Pastikan memanggil method authUser register.
+        - Pastikan hasil actual not null.
+        - Pastikan mengembalikan error.
+        - Pastikan hasil expect dan actual sama.
+    2. Ketika berhasil Register:
+        - Pastikan memanggil method authUser register
+        - Pastikan mengembalikan sukses
+        - Pastikan hasil actual not null
+        - Pastikan hasil expect dan actual sama.
+
+C. Other View Model
+    1. Ketika logout:
+        - Pastikan memanggil method AuthUser saveAuthToken
+
+D. Dashboard View Model
+    1. ketika get stories:
+        - Pastikan memanggil method repoStories getStories
+        - Pastikan data actual tidak null
+        - Pastikan data dummy sama dengan data differ snapshot
+        - Pastikan ukuran data dummy sama dengan ukuran data differ snapshot
+        - Pastikan nama dari data dummy ke-0 sama dengan nama dari data differ snapshot ke-0
+
+E. Story Add View Model
+    1. Ketika berhasil Upload Story:
+        - Pastikan memanggil method repoStories postStories
+        - Pastikan data actual tidak null
+        - Pastikan hasil expect dan actual sama.
+        - Pastikan mengembalikan sukses
+    2. Ketika gagal Upload Story:
+        - Pastikan memanggil method repoStories postStories
+        - Pastikan data actual tidak null
+        - Pastikan hasil expect dan actual sama.
+        - Pastikan mengembalikan gagal
+
+F. Map View Model
+    1. Ketika berhasil mendapatkan story berdasarkan lokasi:
+        - Pastikan memanggil method repoStories getStoriesbyLocation
+        - Pastikan hasil actual not null
+        - Pastikan hasil expect dan actual sama.
+        - Pastikan mengembalikan sukses
+    2. Ketika gagal mendapatkan story berdasarkan lokasi:
+        - Pastikan memanggil method repoStories getStoriesbyLocation
+        - Pastikan hasil actual not null
+        - Pastikan hasil expect dan actual sama.
+        - Pastikan mengembalikan gagal.
+

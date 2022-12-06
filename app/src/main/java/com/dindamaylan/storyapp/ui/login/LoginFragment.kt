@@ -1,7 +1,6 @@
 package com.dindamaylan.storyapp.ui.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +33,6 @@ class LoginFragment : androidx.fragment.app.Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         doActions()
-        Log.d("TAG", """
-            ${binding.cetEmail::class.java.simpleName}
-            ${binding.cetPassword::class.java.simpleName}
-        """.trimIndent())
     }
 
     private fun doActions() {
@@ -54,7 +49,6 @@ class LoginFragment : androidx.fragment.app.Fragment() {
     private fun doLogin() {
         val email = binding.cetEmail.text.toString()
         val password = binding.cetPassword.text.toString()
-        Log.d("TAG", "doLogin: $email")
         loadingState(true)
 
         lifecycleScope.launchWhenResumed {
@@ -63,12 +57,9 @@ class LoginFragment : androidx.fragment.app.Fragment() {
             jobLogin = launch {
                 binding.tvAlert.visibility = View.INVISIBLE
                 loginViewModel.login(email, password).collect {
-                    Log.d("TAG", "doLogin: $it")
                     it.onSuccess { login ->
-                        Log.d("TAG", "doLogin: ")
                         login.loginResult?.token?.let { token ->
                             loginViewModel.authToken(token)
-
                         }
                         Toast.makeText(
                             requireContext(),

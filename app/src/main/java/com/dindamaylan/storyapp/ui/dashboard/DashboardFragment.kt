@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.paging.ExperimentalPagingApi
-import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dindamaylan.storyapp.MainActivity
 import com.dindamaylan.storyapp.R
 import com.dindamaylan.storyapp.data.adapter.ListStoriesAdapter
+import com.dindamaylan.storyapp.data.adapter.LoadingStateAdapter
 import com.dindamaylan.storyapp.databinding.FragmentDashboardBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -69,32 +69,19 @@ class DashboardFragment : Fragment() {
     }
 
     private fun getStoriesData() {
-        dashboardViewModel.getStories().observe(viewLifecycleOwner) { it ->
+        dashboardViewModel.getStories().observe(viewLifecycleOwner) {
             listStoriesAdapter.submitData(lifecycle, it)
-            listStoriesAdapter.addLoadStateListener {
-                if (it.source.refresh is LoadState.NotLoading && it.append.endOfPaginationReached) {
-                    binding.apply {
-                        ivEmptyStateStory.visibility = View.VISIBLE
-                        tvEmptyState.visibility = View.VISIBLE
-                        rvStories.visibility = View.GONE
-                    }
-                } else {
-                    binding.apply {
-                        ivEmptyStateStory.visibility = View.GONE
-                        tvEmptyState.visibility = View.GONE
-                        rvStories.visibility = View.VISIBLE
-                    }
-                }
-                binding.swipeRefresh.isRefreshing =
-                    it.source.refresh is LoadState.Loading && it.append.endOfPaginationReached
-            }
         }
     }
 
     private fun setRecycleList() {
         binding.rvStories.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = listStoriesAdapter
+            adapter = listStoriesAdapter.withLoadStateFooter(
+                footer = LoadingStateAdapter{
+                    listStoriesAdapter.retry()
+                }
+            )
         }
     }
 }
