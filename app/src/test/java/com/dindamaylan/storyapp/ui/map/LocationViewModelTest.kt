@@ -55,6 +55,8 @@ class LocationViewModelTest{
         Mockito.verify(repoStories).getStoriesbyLocation()
         Assert.assertNotNull(actual)
         Assert.assertEquals(expect.first(), actual)
+        Assert.assertTrue(expect.first().isSuccess)
+        Assert.assertFalse(expect.first().isFailure)
     }
 
     @Test
@@ -70,8 +72,8 @@ class LocationViewModelTest{
 
         Mockito.verify(repoStories).getStoriesbyLocation()
         Assert.assertNotNull(actual)
-        println(expect.first())
-        println(actual)
         Assert.assertEquals(expect.first(), actual)
+        Assert.assertFalse(expect.first().isSuccess)
+        Assert.assertTrue(expect.first().isFailure)
     }
 }

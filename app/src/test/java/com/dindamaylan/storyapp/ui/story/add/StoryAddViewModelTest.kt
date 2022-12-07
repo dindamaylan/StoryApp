@@ -7,6 +7,7 @@ import com.dindamaylan.storyapp.data.repository.RepoStories
 import com.dindamaylan.storyapp.utils.CoroutinesRule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert
@@ -59,6 +60,8 @@ class StoryAddViewModelTest{
         Mockito.verify(repoStories).postStories(dummyFile, dummyDesc, null, null)
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected, actual)
+        Assert.assertTrue(data.first().isSuccess)
+        Assert.assertFalse(data.first().isFailure)
     }
 
     @Test
@@ -83,5 +86,7 @@ class StoryAddViewModelTest{
         Mockito.verify(repoStories).postStories(dummyFile, dummyDesc, null, null)
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected, actual)
+        Assert.assertFalse(data.first().isSuccess)
+        Assert.assertTrue(data.first().isFailure)
     }
 }

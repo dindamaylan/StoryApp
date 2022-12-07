@@ -55,6 +55,8 @@ class RegisterViewModelTest{
         Mockito.verify(authUser).register(dummyName, dummyEmail, dummyPassword)
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected.first(), actual)
+        Assert.assertFalse(actual.isSuccess)
+        Assert.assertTrue(actual.isFailure)
     }
 
     @Test
@@ -69,6 +71,8 @@ class RegisterViewModelTest{
         Mockito.verify(authUser).register(dummyName, dummyEmail, dummyPassword)
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected.first(), actual)
+        Assert.assertTrue(actual.isSuccess)
+        Assert.assertFalse(actual.isFailure)
     }
 
 }

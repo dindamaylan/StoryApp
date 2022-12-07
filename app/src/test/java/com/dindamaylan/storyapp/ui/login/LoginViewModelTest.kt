@@ -51,12 +51,14 @@ class LoginViewModelTest {
             Result.failure(Exception("login failed"))
         )
 
-        `when` (authUser.login(dummyEmail, dummyPassword)).thenReturn(expected)
+        `when`(authUser.login(dummyEmail, dummyPassword)).thenReturn(expected)
 
         val actual = loginViewModel.login(dummyEmail, dummyPassword).first()
         Mockito.verify(authUser).login(dummyEmail, dummyPassword)
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected.first(), actual)
+        Assert.assertFalse(actual.isSuccess)
+        Assert.assertTrue(actual.isFailure)
     }
 
     @Test
@@ -71,6 +73,8 @@ class LoginViewModelTest {
         Mockito.verify(authUser).login(dummyEmail, dummyPassword)
         Assert.assertNotNull(actual)
         Assert.assertEquals(expected.first(), actual)
+        Assert.assertTrue(actual.isSuccess)
+        Assert.assertFalse(actual.isFailure)
     }
 
     @Test

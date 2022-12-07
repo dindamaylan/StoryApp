@@ -4,13 +4,15 @@ A. Login View Model
     1. Ketika gagal:
         - Pastikan memanggil method AuthUser Login.
         - Pastikan hasil actual not null.
-        - Pastikan mengembalikan error
         - Pastikan hasil expect dan actual sama.
+        - Pastikan actual.isSuccess bernilai false
+        - Pastikan actual.isFailure bernilai true
     2. Ketika berhasil Login:
         - Pastikan memanggil method AuthUser Login.
         - Pastikan hasil actual not null.
-        - Pastikan mengembalikan response sukses.
         - Pastikan hasil expect dan actual sama.
+        - Pastikan actual.isSuccess bernilai true
+        - Pastikan actual.isFailure bernilai false
     3. Ketika berhasil Login:
         - Pastikan memanggil method AuthUser getTokenAuth.
         - Pastikan hasil token actual tidak kosong
@@ -24,13 +26,15 @@ B. Register View Model
     1. Ketika gagal Register:
         - Pastikan memanggil method authUser register.
         - Pastikan hasil actual not null.
-        - Pastikan mengembalikan error.
         - Pastikan hasil expect dan actual sama.
+        - Pastikan actual.isSuccess bernilai false
+        - Pastikan actual.isFailure bernilai true
     2. Ketika berhasil Register:
         - Pastikan memanggil method authUser register
-        - Pastikan mengembalikan sukses
         - Pastikan hasil actual not null
         - Pastikan hasil expect dan actual sama.
+        - Pastikan actual.isSuccess bernilai true
+        - Pastikan actual.isFailure bernilai false
 
 C. Other View Model
     1. Ketika logout:
@@ -49,22 +53,26 @@ E. Story Add View Model
         - Pastikan memanggil method repoStories postStories
         - Pastikan data actual tidak null
         - Pastikan hasil expect dan actual sama.
-        - Pastikan mengembalikan sukses
+        - Pastikan data.first().isSuccess bernilai true
+        - Pastikan data.first().isFailure bernilai false
     2. Ketika gagal Upload Story:
         - Pastikan memanggil method repoStories postStories
         - Pastikan data actual tidak null
         - Pastikan hasil expect dan actual sama.
-        - Pastikan mengembalikan gagal
+        - Pastikan data.first().isSuccess bernilai false
+        - Pastikan data.first().isFailure bernilai true
 
-F. Map View Model
+F. Location View Model
     1. Ketika berhasil mendapatkan story berdasarkan lokasi:
         - Pastikan memanggil method repoStories getStoriesbyLocation
         - Pastikan hasil actual not null
         - Pastikan hasil expect dan actual sama.
-        - Pastikan mengembalikan sukses
+        - Pastikan expect.fist().isSuccess bernilai true
+        - Pastikan expect.first().isFailure bernilai false
     2. Ketika gagal mendapatkan story berdasarkan lokasi:
         - Pastikan memanggil method repoStories getStoriesbyLocation
         - Pastikan hasil actual not null
         - Pastikan hasil expect dan actual sama.
-        - Pastikan mengembalikan gagal.
+        - Pastikan expect.fist().isSuccess bernilai false
+        - Pastikan expect.first().isFailure bernilai true
 
